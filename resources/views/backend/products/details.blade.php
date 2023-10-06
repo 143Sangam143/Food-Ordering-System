@@ -1,1 +1,0 @@
-<h1>this is details view of product view</h1>

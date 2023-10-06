@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('item_image')->nullable();
             $table->integer('price')->nullable();
             $table->integer('quantity')->nullable();
+            $table->string('restaurant_email')->nullable();
+            $table->string('user_email')->nullable();
             $table->timestamps();
         });
     }

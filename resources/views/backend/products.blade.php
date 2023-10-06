@@ -1,9 +1,15 @@
 @extends('backend.layouts.app')
 @section('title')
-    Products
+    @if(\Route::current()->getName() == 'backend.restaurants')
+        Restaurant
+    @else
+        Products
+    @endif
 @endsection
 @section('meta-content')
-    @if (\Route::current()->getName() == 'backend.products') 
+    @if(\Route::current()->getName() == 'backend.restaurants.update')
+        update
+    @elseif (\Route::current()->getName() == 'backend.products') 
         Category
     @elseif (\Route::current()->getName() == 'backend.products.list')
         list
@@ -13,8 +19,11 @@
 @endsection
 
 @section('main')
-    
-    @if(\Route::current()->getName() == 'backend.products')
+    @if(\Route::current()->getName() == 'backend.restaurants')
+        @include('backend.products.restaurant')
+    @elseif(\Route::current()->getName() == 'backend.restaurants.update')
+        @include('backend.products.restaurant')
+    @elseif(\Route::current()->getName() == 'backend.products')
         @include('backend.products.category')
     @elseif(\Route::current()->getName() == 'backend.products.category.update')
         @include('backend.products.category')

@@ -18,12 +18,16 @@ class ProductSeeder extends Seeder
                 'category' => 'Burger',
                 'description' => 'Burger are the best lunch in the world',
                 'image' => 'burger.png',
+                'restaurant_email' => 'food@gmail.com',
+                'restaurant_id' => '5',
             ],
 
             [
                 'category' => 'Pizza',
                 'description' => 'Pizza are the best appetizer in the world',
                 'image' => 'pizza.png',
+                'restaurant_email' => '',
+                'restaurant_id' => '',
             ],
         ];
 

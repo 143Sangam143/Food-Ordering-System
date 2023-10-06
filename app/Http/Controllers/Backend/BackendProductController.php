@@ -5,14 +5,19 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductList;
+use App\Models\Restaurant;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BackendProductController extends Controller
 {
-    public function p_category()
+    public function p_category($id)
     {
-        $products = Product::get()->all();
-        return view('backend.products', compact('products'));
+        $restaurants = User::find($id);
+        $emails = $restaurants->email;
+        $restaurant_id = $restaurants->id;
+        $products = Product::where('restaurant_email', $emails)->get()->all();
+        return view('backend.products', compact('products', 'emails', 'restaurant_id'));
     }
 
     public function add_category(Request $request)
@@ -20,6 +25,8 @@ class BackendProductController extends Controller
         $products = new product;
         $products->category = $request->category;
         $products->description = $request->description;
+        $products->restaurant_email = $request->email;
+        $products->restaurant_id =$request->restaurant_id;
 
         $image = $request->image;
         $imagename = time().'.'.$image->getClientOriginalExtension();
@@ -34,9 +41,15 @@ class BackendProductController extends Controller
     public function delete_category($id)
     {
         $products = product::find($id);
+        $email = $products->restaurant_email;
+        $restaurant_id = $products->restaurant_id;
+        $category = $products->category;
         $products->delete();
+        $productlists = ProductList::where('category', $category)->where('restaurant_id', $restaurant_id)->where('restaurant_email', $email)->get()->all();
+        foreach($productlists as $productlist){
+            $productlist->delete();
+        }
         return redirect()->back();
-
     }
 
     public function update_category($id)
@@ -48,8 +61,13 @@ class BackendProductController extends Controller
     public function update_category_confirm(Request $request, $id)
     {
         $products = product::find($id);
-        $category_update=$products->category;
+        $email=$products->restaurant_email;
+        $restaurant_id = $products->restaurant_id;
+        $product_category=$products->category;
         $products->category = $request->category;
+        $products->email = $request->email;
+        $products->restaurant_id = $request->restaurant_id;
+        
         $products->description = $request->description;
         if($request->hasFile('image'))
         {
@@ -59,17 +77,11 @@ class BackendProductController extends Controller
             $products->image=$imagename;
         }
         $products->save();
-        $lists = ProductList::where('category',$category_update)->get()->all();
-        
+        $lists = ProductList::where('category',$product_category)->where('restaurant_id', $restaurant_id)->where('restaurant_email', $email)->get()->all();
         foreach($lists as $list){
-            echo $list;
-            $list->category = $products->category;
-            $id=$list->id;
-            
+            $list->category = $request->category;
             $list->save();
-            echo $list;
         }
-             
-        return redirect()->route('backend.products');
+        return redirect()->route('backend.restaurants');
     }
 }

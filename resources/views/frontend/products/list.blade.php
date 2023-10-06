@@ -1,6 +1,8 @@
-<a href="{{ route('products.cartlist') }}" class="fixed right-[1rem] sm:right-[2.5rem] top-[5rem] z-[1100] h-[2.5rem] min-[450px]:h-[3rem] w-[2.5rem] min-[450px]:w-[3rem] cursor-pointer">
-    <img src="{{asset('/frontend/images/cart.png')}}" alt="ToTop" class="">
-</a>
+@auth
+    <a href="{{ route('products.cartlist') }}" class="fixed right-[1rem] sm:right-[2.5rem] top-[5rem] z-[1100] h-[2.5rem] min-[450px]:h-[3rem] w-[2.5rem] min-[450px]:w-[3rem] cursor-pointer">
+        <img src="{{asset('/frontend/images/cart.png')}}">
+    </a>
+@endauth
 <div class="min-h-screen !bg-fixed !bg-no-repeat !bg-center !bg-cover pt-[8rem] pb-[3rem] space-y-[1.5rem]" style="background-image: url('/frontend/images/products/background/bg-category-<?php echo rand(1,9)?>.png')" >
     <h1 class="font-bold text-[2.2rem] text-white text-center">{{$category}}</h1>
     <div class="grid grid-cols-1 min-[350px]:grid-cols-2 xl:grid-cols-3 items-center justify-center px-[5%] 2xl:px-[10vw] gap-y-[1.5rem] scroll-smooth">
@@ -38,18 +40,22 @@
                         <span>Added</span>
                     </div>
                 @else
-                    <form action="{{route('products.cart', $category)}}" method="post">
+                    <form action="{{route('products.cart', $list->id)}}" method="post">
                         @csrf
                         <input type="text" class="hidden" name="name" value="{{ $list->name }}">
                         <input type="number" class="hidden" name="price" value="{{ $list->price }}">
+                        <input type="text" class="hidden" name="restaurant_email" value="{{ $list->email }}">
                         <input type="number" class="hidden" name="quantity" value="1">
                         <input type="text" class="hidden" name="image" value="{{ $list->image }}">
+                        <input type="text" class="hidden" name="restaurant_email" value="{{ $list->restaurant_email }}">
+                        @auth
+                            <input type="text" class="hidden" name="user_email" value="{{ Auth::user()->email }}">
+                        @endauth
                         <button type="submit" value="submit" class="btn-next mx-auto flex bg-[#3574d3] text-white w-fit rounded-md items-center justify-between w-fit p-4 py-1.5 font-medium text-left capitalize rounded-md  dark:focus:ring-blue-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800">
                             <span class="">Add to cart</span>
                         </button>
                     </form>
                 @endif
-                
             </div>
         </div>
     @endforeach

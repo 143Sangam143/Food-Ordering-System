@@ -5,21 +5,34 @@ namespace App\Http\Controllers\Frontend;
 use App\Models\Cart;
 use App\Models\Product;
 use App\Models\ProductList;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 
 class ProductController extends Controller
 {
-    public function p_category()
+    public function restaurant_list()
     {
-        $products = Product::get()->all();
+        $restaurants = User::where('usertype', '2')->get()->all();
+        return view('frontend.products', compact('restaurants'));
+    }
+    public function p_category($id)
+    {
+        $restaurants = User::find($id);
+        $restaurant_id = $restaurants->id;
+        $restaurant_email = $restaurants->email;
+        $products = Product::where('restaurant_id', $restaurant_id)->where('restaurant_email', $restaurant_email)->get()->all();
         return view('frontend.products', compact('products'));
     }
 
-    public function list($category)
+    public function list($id)
     {
-        $lists = ProductList::where('category',$category)->get()->all();
+        $products = Product::find($id);
+        $restaurant_id = $products->restaurant_id;
+        $restaurant_email = $products->restaurant_email;
+        $category = $products->category;
+        $lists = ProductList::where('category',$category)->where('restaurant_id', $restaurant_id)->where('restaurant_email', $restaurant_email)->get()->all();
         if(Cart::exists()){
             $addCarts = Cart::get()->all();
         }
@@ -27,18 +40,19 @@ class ProductController extends Controller
             $addCarts = 0;
         }
         if(!$lists){
-            return redirect()->route('frontend.products')->with('message', 'products will be avialable soon');
+            return redirect()->route('restaurants')->with('message', 'products will be avialable soon');
         }
         return view('frontend.products', compact('lists', 'category', 'addCarts'));
     }
 
-    public function cart(Request $request, $category){
-        $lists = ProductList::where('category', $category)->get()->all();
+    public function cart(Request $request, $id){
+        $lists = ProductList::find($id);
+        $category = $lists->category;
         $addCarts = Cart::get()->all();
         if(Cart::exists()){
             $name = $request->name;
             if(Cart::where('item_name', $name)->exists()){
-                return view('frontend.products', compact('lists','category', 'addCarts'));
+                return redirect()->back();
             }
             else{
                 $carts = new Cart;
@@ -46,8 +60,10 @@ class ProductController extends Controller
                 $carts->item_image = $request->image;
                 $carts->price = $request->price;
                 $carts->quantity = $request->quantity;
+                $carts->restaurant_email = $request->restaurant_email;
+                $carts->user_email = $request->user_email;
                 $carts->save();
-                return view('frontend.products', compact('lists','category', 'addCarts'));
+                return redirect()->back();
             }
         }
         else{
@@ -57,8 +73,10 @@ class ProductController extends Controller
             $carts->item_image = $request->image;
             $carts->price = $request->price;
             $carts->quantity = $request->quantity;
+            $carts->restaurant_email = $request->restaurant_email;
+            $carts->user_email = $request->user_email;
             $carts->save();
-            return view('frontend.products', compact('lists','category', 'addCarts'));
+            return redirect()->back();
         }
         
     }

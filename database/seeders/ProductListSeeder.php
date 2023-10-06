@@ -20,6 +20,8 @@ class ProductListSeeder extends Seeder
                 'price' => '150',
                 'image' => 'burger-1.png',
                 'category' => 'Burger',
+                'restaurant_email'    => 'food@gmail.com',
+                'restaurant_id' => '5',
             ],
             [
                 'name'  => 'Chicken Burger',
@@ -27,6 +29,8 @@ class ProductListSeeder extends Seeder
                 'price' => '220',
                 'image' => 'burger-2.png',
                 'category' => 'Burger',
+                'restaurant_email'    => 'food@gmail.com',
+                'restaurant_id' => '5',
             ],
             [
                 'name'  => 'Buff Burger',
@@ -34,6 +38,8 @@ class ProductListSeeder extends Seeder
                 'price' => '180',
                 'image' => 'burger-3.png',
                 'category' => 'Burger',
+                'restaurant_email'    => '',
+                'restaurant_id' => '',
             ],
             [
                 'name'  => 'Mutton Burger',
@@ -41,6 +47,8 @@ class ProductListSeeder extends Seeder
                 'price' => '250',
                 'image' => 'burger-4.png',
                 'category' => 'Burger',
+                'restaurant_email'    => '',
+                'restaurant_id' => '',
             ],
             [
                 'name'  => 'Paaneer Burger',
@@ -48,6 +56,8 @@ class ProductListSeeder extends Seeder
                 'price' => '240',
                 'image' => 'burger-5.png',
                 'category' => 'Burger',
+                'restaurant_email'    => '',
+                'restaurant_id' => '',
             ],
             [
                 'name'  => 'Mix Burger',
@@ -55,6 +65,8 @@ class ProductListSeeder extends Seeder
                 'price' => '280',
                 'image' => 'burger-6.png',
                 'category' => 'Burger',
+                'restaurant_email'    => '',
+                'restaurant_id' => '',
             ],
             [
                 'name'  => 'Veg Pizza',
@@ -62,6 +74,8 @@ class ProductListSeeder extends Seeder
                 'price' => '150',
                 'image' => 'pizza-1.png',
                 'category' => 'Pizza',
+                'restaurant_email'    => '',
+                'restaurant_id' => '',
             ],
             [
                 'name'  => 'Chicken Pizza',
@@ -69,6 +83,8 @@ class ProductListSeeder extends Seeder
                 'price' => '220',
                 'image' => 'pizza-2.png',
                 'category' => 'Pizza',
+                'restaurant_email'    => '',
+                'restaurant_id' => '',
             ],
             [
                 'name'  => 'Buff Pizza',
@@ -76,6 +92,8 @@ class ProductListSeeder extends Seeder
                 'price' => '180',
                 'image' => 'pizza-3.png',
                 'category' => 'Pizza',
+                'restaurant_email'    => '',
+                'restaurant_id' => '',
             ],
             [
                 'name'  => 'Mutton Pizza',
@@ -83,6 +101,8 @@ class ProductListSeeder extends Seeder
                 'price' => '250',
                 'image' => 'pizza-4.png',
                 'category' => 'Pizza',
+                'restaurant_email'    => '',
+                'restaurant_id' => '',
             ],
             [
                 'name'  => 'Paaneer Pizza',
@@ -90,6 +110,8 @@ class ProductListSeeder extends Seeder
                 'price' => '240',
                 'image' => 'pizza-5.png',
                 'category' => 'Pizza',
+                'restaurant_email'    => '',
+                'restaurant_id' => '',
             ],
             [
                 'name'  => 'Mix Pizza',
@@ -97,6 +119,8 @@ class ProductListSeeder extends Seeder
                 'price' => '280',
                 'image' => 'pizza-6.png',
                 'category' => 'Pizza',
+                'restaurant_email'    => '',
+                'restaurant_id' => '',
             ],
             
         ];

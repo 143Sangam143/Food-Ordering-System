@@ -4,12 +4,16 @@
         Shopping
     @elseif (\Route::current()->getName() == 'payment.response')
         Payment
+    @elseif(\Route::current()->getName() == 'restaurants')
+        Restaurant
     @else
         Products
     @endif 
 @endsection
 @section('meta-content')
-    @if (\Route::current()->getName() == 'products') 
+    @if(\Route::current()->getName() == 'restaurants')
+        List
+    @elseif (\Route::current()->getName() == 'products') 
         Category
     @elseif (\Route::current()->getName() == 'products.list')
         list
@@ -24,7 +28,9 @@
 @endsection
 
 @section('main')
-    @if (\Route::current()->getName() == 'products') 
+    @if(\Route::current()->getName() == 'restaurants')
+        @include('frontend.products.restaurantlist')
+    @elseif (\Route::current()->getName() == 'products') 
         @include('frontend.products.landing')
         @include('frontend.products.category')
     @elseif ((\Route::current()->getName() == 'products.list'))

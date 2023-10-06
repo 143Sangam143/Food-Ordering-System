@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'usertype' => '1',
             'password' => Hash::make('admin@admin'),
-            
+            'profile_pic' => 'admin.png',
         ]);
 
         User::create([
@@ -29,6 +29,7 @@ class UserSeeder extends Seeder
             'phone' => '9864998311',
             'address' => 'Gothatar',
             'password' => Hash::make('sangam123'),
+            'profile_pic' => 'sangam.png',
         ]);
 
         User::create([
@@ -38,6 +39,7 @@ class UserSeeder extends Seeder
             'phone' => '9868832985',
             'address' => 'Tikathali',
             'password' => Hash::make('anil123'),
+            'profile_pic' => '',
         ]);
 
         User::create([
@@ -47,6 +49,17 @@ class UserSeeder extends Seeder
             'phone' => '9840217070',
             'address' => 'Koteshwor',
             'password' => Hash::make('shikshita123'),
+            'profile_pic' => '',
+        ]);
+
+        User::create([
+            'name' => 'Food Cafe',
+            'email' => 'food@gmail.com',
+            'usertype' => '2',
+            'phone' => '0123456789',
+            'address' => 'kathmandu',
+            'password' => Hash::make('food@food'),
+            'profile_pic' => 'restaurant.png',
         ]);
     }
 }

@@ -32,7 +32,7 @@
                         <a href="{{ route('about') }}" class="text-white no-underline">About</a>
                     </p>
                     <p>
-                        <a href="{{ route('products') }}" class="text-white no-underline">Products</a>
+                        <a href="{{ route('restaurants') }}" class="text-white no-underline">Restaurant</a>
                     </p>
                     <p>
                         <a href="{{ route('services') }}" class="text-white no-underline">Services</a>
