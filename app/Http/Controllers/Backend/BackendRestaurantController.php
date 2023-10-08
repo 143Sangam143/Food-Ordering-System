@@ -11,10 +11,6 @@ use Illuminate\Http\Request;
 
 class BackendRestaurantController extends Controller
 {
-    public function index()
-    {
-        return view('backend.restaurants');
-    }
     public function r_list()
     {
         $restaurants = User::where('usertype', '2')->get()->all();
