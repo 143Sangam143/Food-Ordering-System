@@ -1,12 +1,12 @@
 <div class="relative"></div>
-<header x-data="{ open: false }" class="absolute w-full bg-transparent grid max-lg:grid-rows-1 px-[1rem] sm:px-[3rem] min-[850px]:px-[4rem] py-[.4rem] max-[350px]:pb-[0.5rem] z-[1099]" id="header">
+<header x-data="{ open: false }" class="absolute w-full bg-transparent grid max-lg:grid-rows-1 px-[1rem] sm:px-[3rem] min-[850px]:px-[4rem] py-[.4rem] max-[350px]:pb-[0.5rem] z-[1200]" id="header">
     @if (Route::has('login'))
         <div class="grid grid-rows-2 grid-flow-col">
             <a href="{{route('home')}}" class="row-span-3 h-[3rem] w-[3rem] min-[350px]:h-[3rem] min-[350px]:w-[3rem] cursor-pointer">
                 <img src="{{asset('/frontend/images/logo.png')}}" alt="Logo" class="h-full relative">
                 <h1 class="text-white absolute max-[350px]:text-[.7rem] text-[.9rem] font-bold font-mono">G-Helper</h1>
             </a>
-            <div class=" col-span-4 max-[250px]:col-span-4 ml-auto flex gap-[.5rem]">
+            <div class="col-span-4 max-[250px]:col-span-4 ml-auto flex gap-[.5rem]">
                 <div class="ml-auto">
                     <input type="checkbox" id="search" class="hidden peer">
                     <div class="max-w-0 max-[250px]:h-[1.4rem] h-[1.8rem] min-[350px]:h-[2rem] flex relative max-[250px]:peer-checked:max-w-[6rem] peer-checked:max-w-[12rem] min-[450px]:peer-checked:max-w-[20rem] peer-checked:rounded-[2.5rem] peer-checked:mr-0 group">
@@ -56,7 +56,7 @@
                         </svg>
                     </button>
                 @endauth
-                <div id="dropdownInformation" class="z-[3000] hidden bg-[#fff] divide-y divide-gray-100 rounded-lg shadow w-auto p-2 items-center text-start dark:bg-gray-700 dark:divide-gray-600 mr-2">
+                <div id="dropdownInformation" class="z-[1000] hidden bg-[#fff] divide-y divide-gray-100 rounded-lg shadow w-auto p-2 items-center text-start dark:bg-gray-700 dark:divide-gray-600 mr-2">
                     @auth
                         <div class="max-[280px]:px-1 max-[280px]:py-1 px-2 py-2 dark:text-white truncate select-none">
                             <h1 class="max-[280px]:text-[.6rem] max-sm:text-[.8rem] text-sm font-normal pb-1 text-gray-400">
