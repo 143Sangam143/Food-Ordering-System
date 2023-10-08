@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EsewaController extends Controller
 {
@@ -32,8 +34,25 @@ class EsewaController extends Controller
             $response_code = $this->get_response('response_code',$response);
             if(trim($response_code) =='Success')
             {
-                $order->status= 1;
-                $order->save();
+                
+                $user_email = Auth::user()->email;
+                $carts = Cart::where('user_email', $user_email)->get()->all();
+                foreach($carts as $cart){
+                    $order->status= 1;
+                    $order->item_name = $cart->item_name;
+                    $order->item_image = $cart->item_image;
+                    $order->price = $cart->price;
+                    $order->quantity = $cart->quantity;
+                    $order->restaurant_email = $cart->restaurant_email;
+                    $order->user_email = $cart->user_email;
+                    $order->delivery_status = 'accepted';
+                    $order->save();
+                }
+                $user_email = Auth::user()->email;
+                $carts = Cart::where('user_email', $user_email)->get()->all();
+                foreach($carts as $cart){
+                    $cart->delete();
+                }
                 return redirect()->route('payment.response')->with('success_message', 'Trasaction completed.');
             }
         }
