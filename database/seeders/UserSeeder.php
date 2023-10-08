@@ -61,5 +61,15 @@ class UserSeeder extends Seeder
             'password' => Hash::make('food@food'),
             'profile_pic' => 'restaurant.png',
         ]);
+
+        User::create([
+            'name' => 'Puskar Shrestha',
+            'email' => 'puskar@gmail.com',
+            'usertype' => '0',
+            'phone' => '0123456789',
+            'address' => 'kathmandu',
+            'password' => Hash::make('puskar123'),
+            'profile_pic' => '',
+        ]);
     }
 }
