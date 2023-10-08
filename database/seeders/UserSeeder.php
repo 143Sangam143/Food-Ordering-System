@@ -69,7 +69,7 @@ class UserSeeder extends Seeder
             'phone' => '0123456789',
             'address' => 'kathmandu',
             'password' => Hash::make('puskar123'),
-            'profile_pic' => '',
+            'profile_pic' => 'puskar.png',
         ]);
     }
 }
