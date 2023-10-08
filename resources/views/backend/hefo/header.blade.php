@@ -38,11 +38,13 @@
                                 {{ __('Profile') }}
                             </a>
                         </div>
-                        <div class="max-[280px]:px-1 max-[280px]:py-1 px-2 py-2 dark:text-white truncate">
-                            <a href="{{ route('backend.verify') }}" class="max-[280px]:text-[.7rem] max-sm:text-[.9rem] font-semibold pb-1 text-gray-600 hover:text-gray-900 hover:border-y-2 border-gray-100 rounded-[.3rem]">
-                                Verify
-                            </a>
-                        </div>
+                        @if(Auth::user()->usertype == '1')
+                            <div class="max-[280px]:px-1 max-[280px]:py-1 px-2 py-2 dark:text-white truncate">
+                                <a href="{{ route('backend.verify') }}" class="max-[280px]:text-[.7rem] max-sm:text-[.9rem] font-semibold pb-1 text-gray-600 hover:text-gray-900 hover:border-y-2 border-gray-100 rounded-[.3rem]">
+                                    Verify
+                                </a>
+                            </div>
+                        @endif
                         <!-- Authentication -->
                         <div class="max-[280px]:px-1 max-[280px]:py-1 px-2 py-2 dark:text-white truncate">
                             <form  class="h-auto" method="POST" action="{{ route('logout') }}" x-data>

@@ -25,8 +25,12 @@
     <body class="font-sans antialiased">
         <x-banner />
         <div class="header z-[1500]">
-            @include('backend.hefo.top')
-            @include('backend.hefo.header')
+            @if(request()->segment(2) == 'restaurant')
+                @include('backend.restaurant.header')
+            @else
+                @include('backend.hefo.top')
+                @include('backend.hefo.header')
+            @endif
         </div>
         <div class="main">
             @yield('main')

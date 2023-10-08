@@ -21,7 +21,7 @@
 
             <div class="mt-4">
                 <x-label for="phone" value="{{ __('Phone') }}" />
-                <x-input id="phone" class="block mt-1 w-full" type="number" name="phone" :value="old('phone')" required autocomplete="phone" />
+                <x-input id="phone" class="block mt-1 w-full" type="number" pattern="[1-9]{1}[0-9]{9}" name="phone" :value="old('phone')" required maxlength="10" autocomplete="phone" onkeypress="limitKeypress(event,this.value,10)" />
             </div>
 
             <div class="mt-4">
@@ -80,3 +80,11 @@
         </form>
     </x-authentication-card>
 </x-guest-layout>
+
+<script>
+    function limitKeypress(event, value, maxLength) {
+        if (value != undefined && value.toString().length >= maxLength) {
+            event.preventDefault();
+        }
+    }
+</script>

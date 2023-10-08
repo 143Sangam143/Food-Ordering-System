@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\BackendRestaurantController;
+use App\Http\Controllers\Backend\BackendRestaurantDashboardController;
 use App\Http\Controllers\frontend\EsewaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomeController;
@@ -125,7 +126,7 @@ route::group(['middleware' => 'admin', 'prefix' => 'backend'], function() {
 
 /******************************* Restaurant Routes ****************************************/ 
 route::group(['middleware' => 'restaurant', 'prefix' => 'backend'], function(){
-    route::get('/restaurant', [BackendRestaurantController::class, 'index'])->name('backend.restaurant.home');
+    route::get('/restaurant', [BackendRestaurantDashboardController::class, 'index'])->name('backend.restaurant.home');
 });
 
 /******************************* Extra Routes ****************************************/ 
