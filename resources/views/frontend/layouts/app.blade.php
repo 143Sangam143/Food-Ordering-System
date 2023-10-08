@@ -22,6 +22,16 @@
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
         <link href="{{asset('/frontend/css/swiper.min.css')}}" rel="stylesheet">
+
+        <style>
+            body::-webkit-scrollbar {
+                display: none;
+            }
+            body {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        </style>
     </head>
     <body class="font-sans antialiased">
         <x-banner />
