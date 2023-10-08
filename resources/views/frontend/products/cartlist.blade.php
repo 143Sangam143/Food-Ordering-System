@@ -96,13 +96,13 @@
                                 <a href="{{ route('products.order') }}" class="text-center text-white bg-blue-700 font-semibold hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-[.7rem] xs:text-[.95rem] px-5 py-2.5 h-[2.03rem] xs:h-[2.5rem] md:h-[2.7rem] mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Cash on delivery</a>
                             </div>
                             <p class="text-center text-[#4b5563]">or</p>
-                            <a href="{{ url()->previous() }}" class="text-blue-700 max-2xs:text-[.8rem] max-xs:text-[.85rem] xs:text-[.9rem] font-medium text-center w-full">Continue Shopping</a>
+                            <a href="{{ url()->previous() }}" class="text-blue-700 max-2xs:text-[.8rem] max-xs:text-[.85rem] xs:text-[.9rem] font-medium text-center w-full">Continue Order</a>
                         </div>
                     </div>
                 </div>
             @else
                 <h1 class="max-2xs:text-[.8rem] text-[.9rem] xs:text-[1.2rem] font-semibold text-[#374151] pb-4">No items in cart.</h1>
-                <a href="{{ route('restaurants') }}" class="text-center text-white bg-blue-700 font-semibold hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-[.7rem] xs:text-[.95rem] px-5 py-2.5 h-[2.03rem] xs:h-[2.5rem] md:h-[2.7rem] mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Continue Shopping</a>
+                <a href="{{ route('restaurants') }}" class="text-center text-white bg-blue-700 font-semibold hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-[.7rem] xs:text-[.95rem] px-5 py-2.5 h-[2.03rem] xs:h-[2.5rem] md:h-[2.7rem] mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Continue Order</a>
             @endif
         </div>
     </div>
