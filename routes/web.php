@@ -39,8 +39,8 @@ route::group(["middleware" => 'user'], function() {
         route::get('/', [ProductController::class, 'restaurant_list'])->name('restaurants');
         route::group(['prefix' => 'products'], function () {
             route::get('/{id}', [ProductController::class, 'p_category'])->name('products');
-            route::get('/list/{id}', [ProductController::class, 'list'])->name('products.list');
             route::group(['middleware' => 'auth'], function(){
+                route::get('/list/{id}', [ProductController::class, 'list'])->name('products.list');
                 route::post('/list/{id}/cart', [ProductController::class, 'cart'])->name('products.cart');
                 route::get('/checkout/success', [EsewaController::class, 'success'])->name('esewa.success');
                 route::get('/checkout/failure', [EsewaController::class, 'failure'])->name('esewa.failure');
@@ -50,9 +50,12 @@ route::group(["middleware" => 'user'], function() {
         });
         route::group(['middleware' => 'auth'], function(){
             route::get('/cartlist', [ProductController::class, 'cartlist'])->name('products.cartlist');
+            route::get('/cartlist/delete/all', [ProductController::class, 'cartlist_delete_all'])->name('products.cartlist.remove.all');
             route::get('/cartlist/delete/{id}', [ProductController::class, 'cartlist_delete'])->name('products.carlist.delete');
             route::get('/cartlist/deletebyname/{name}', [ProductController::class, 'cartlist_delete_name'])->name('products.carlist.delete.name');
-            route::post('/cartlist/update', [ProductController::class, 'cartlist_update_quantity'])->name('products.cartlist.update.quantity');
+            
+            route::post('/cartlist/update/{id}', [ProductController::class, 'cartlist_update_quantity'])->name('products.cartlist.update.quantity');
+            route::get('/order', [ProductController::class, 'order'])->name('products.order');
         });
     });
     route::group(['prefix' => 'services'], function () {

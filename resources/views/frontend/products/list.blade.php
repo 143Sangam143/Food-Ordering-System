@@ -27,10 +27,13 @@
                 </div>
             </div>
             <div class="pt-4">
-                @php ($c = 0)
+                @php 
+                    $c = 0;
+                    $user_email = Auth::user()->email;
+                @endphp
                 @if($addCarts != 0)
                     @foreach($addCarts as $addCart)
-                        @if($addCart->item_name == $list->name)
+                        @if($addCart->item_name == $list->name && $addCart->user_email == $user_email)
                             @php ($c=1)
                         @endif
                     @endforeach
