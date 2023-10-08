@@ -29,6 +29,14 @@
                 -ms-overflow-style: none;
                 scrollbar-width: none;
             }
+
+            .scrollbar-display-hidden::-webkit-scrollbar {
+                display: none;
+            }
+            .scrollbar-display-hidden {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
         </style>
     </head>
     <body class="font-sans antialiased">

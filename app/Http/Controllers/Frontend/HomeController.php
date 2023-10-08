@@ -32,7 +32,7 @@ class HomeController extends Controller
             }
             elseif($usertype->usertype == '2')
             {
-                return redirect()->route('backend.restaurant.home');
+                return redirect()->route('restaurant.dashboard');
             }
             else
             {

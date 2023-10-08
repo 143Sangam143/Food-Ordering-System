@@ -42,7 +42,7 @@
                                     <label for="floating_description" class="absolute text-sm text-gray-500 font-semibold dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-2 z-10 origin-[0] peer-focus:left-2 peer-focus:font-semibold peer-focus:text-[#a0a0a0] peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 max-sm:w-[5rem] bg-white truncate">Description</label>
                                 </div>
                             </h3>
-                            <input type="email" name="email" value="{{$emails}}" class="hidden">
+                            <input type="email" name="restaurant_email" value="{{$emails}}" class="hidden">
                             <input type="text" name="restaurant_id" value="{{$restaurant_id}}" class="hidden">
                             <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" value="Add category" id="submit">
                                 Save
@@ -88,7 +88,7 @@
                                     <label for="floating_description" class="absolute text-sm text-gray-500 font-semibold dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-2 z-10 origin-[0] peer-focus:left-2 peer-focus:font-semibold peer-focus:text-[#a0a0a0] peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 max-sm:w-[5rem] bg-white truncate">Description</label>
                                 </div>
                             </h3>
-                            <input type="email" name="email" value="{{$products->email}}" class="hidden">
+                            <input type="email" name="restaurant_email" value="{{$products->restaurant_email}}" class="hidden">
                             <input type="text" name="restaurant_id" value="{{$products->restaurant_id}}" class="hidden">
                             <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" value="Update category" id="submit">
                                 Save
@@ -165,7 +165,7 @@
                                 </div>
                             </h3>
                             @if(!(\Route::current()->getName() == 'backend.products.category.update'))
-                                <input type="email" name="email" value="{{$emails}}" class="hidden">
+                                <input type="email" name="restaurant_email" value="{{$emails}}" class="hidden">
                                 <input type="text" name="restaurant_id" value="{{$restaurant_id}}" class="hidden">
                             @endif
                             <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" value="Add category" id="submit">

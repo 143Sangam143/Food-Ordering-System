@@ -56,7 +56,7 @@
                             </h3>
                             <h3 class="hidden text-[1.2rem] sm:text-[1.5rem] text-[#222] text-start px-2">
                                 <div class="relative z-0 hidden">
-                                    <input type="email" id="floating_email" class="block capitalize text-center px-0 w-full text-[1.2rem] sm:text-[1.5rem] text-[#222] bg-transparent border-2 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-gray-300 focus:border-b-blue-600 peer" name="email" required value="{{$email}}" />
+                                    <input type="email" id="floating_email" class="block capitalize text-center px-0 w-full text-[1.2rem] sm:text-[1.5rem] text-[#222] bg-transparent border-2 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-gray-300 focus:border-b-blue-600 peer" name="restaurent_email" required value="{{$email}}" />
                                     <label for="floating_email" class="absolute text-sm text-gray-500 font-semibold dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-2 z-10 origin-[0] peer-focus:left-2 peer-focus:font-semibold peer-focus:text-[#a0a0a0] peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 max-sm:w-[5rem] bg-white truncate">Email</label>
                                 </div>
                             </h3>
@@ -223,7 +223,7 @@
                             @if(!(\Route::current()->getName() == 'backend.products.list.update'))
                                 <h3 class="hidden text-[1.2rem] sm:text-[1.5rem] text-[#222] text-start px-2">
                                     <div class="relative z-0 hidden">
-                                        <input type="email" id="floating_email" class="block capitalize text-center px-0 w-full text-[1.2rem] sm:text-[1.5rem] text-[#222] bg-transparent border-2 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-gray-300 focus:border-b-blue-600 peer" name="email" required value="{{$email}}" />
+                                        <input type="email" id="floating_email" class="block capitalize text-center px-0 w-full text-[1.2rem] sm:text-[1.5rem] text-[#222] bg-transparent border-2 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-gray-300 focus:border-b-blue-600 peer" name="restaurent_email" required value="{{$email}}" />
                                         <label for="floating_email" class="absolute text-sm text-gray-500 font-semibold dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-2 z-10 origin-[0] peer-focus:left-2 peer-focus:font-semibold peer-focus:text-[#a0a0a0] peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 max-sm:w-[5rem] bg-white truncate">Email</label>
                                     </div>
                                 </h3>

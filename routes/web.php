@@ -126,7 +126,23 @@ route::group(['middleware' => 'admin', 'prefix' => 'backend'], function() {
 
 /******************************* Restaurant Routes ****************************************/ 
 route::group(['middleware' => 'restaurant', 'prefix' => 'backend'], function(){
-    route::get('/restaurant', [BackendRestaurantDashboardController::class, 'index'])->name('backend.restaurant.home');
+    route::get('/restaurant', [BackendRestaurantDashboardController::class, 'index'])->name('restaurant.dashboard');
+    route::get('/restaurant/category', [BackendRestaurantDashboardController::class, 'category'])->name('restaurant.category');
+
+    route::post('/restaurant/category/add', [BackendRestaurantDashboardController::class, 'category_add'])->name('restaurant.category.add');
+    route::post('/restaurant/category/update/{id}', [BackendRestaurantDashboardController::class, 'category_update'])->name('restaurant.category.update');
+    route::get('/restaurant/category/delete/{id}', [BackendRestaurantDashboardController::class, 'category_delete'])->name('restaurant.category.delete');
+
+    route::get('/restaurant/item/', [BackendRestaurantDashboardController::class, 'item'])->name('restaurant.item');
+    route::post('/restaurant/item/add', [BackendRestaurantDashboardController::class, 'item_add'])->name('restaurant.item.add');
+    route::post('/restaurant/item/update/{id}', [BackendRestaurantDashboardController::class, 'item_update'])->name('restaurant.item.update');
+    route::get('/restaurant/item/delete/{id}', [BackendRestaurantDashboardController::class, 'item_delete'])->name('restaurant.item.delete');
+
+    route::get('/restaurant/new_order/', [BackendRestaurantDashboardController::class, 'new_order'])->name('restaurant.new.order');
+    route::post('/restaurant/new_order/update/{id}', [BackendRestaurantDashboardController::class, 'new_order_update'])->name('restaurant.new.order.update');
+
+    route::get('/restaurant/delivered_order/', [BackendRestaurantDashboardController::class, 'delivered_order'])->name('restaurant.delivered.order');
+    route::get('/restaurant/cancel_order/', [BackendRestaurantDashboardController::class, 'cancel_order'])->name('restaurant.cancel.order');
 });
 
 /******************************* Extra Routes ****************************************/ 

@@ -15,7 +15,7 @@ class BackendProductListController extends Controller
         // $products = Product::where('id', $id)->get('category');
         // echo $products;
         $productDetails = Product::find($id);
-        $category_name = $productDetails->category;
+        $category_name = strtolower($productDetails->category);
         $email = $productDetails->restaurant_email;
         $restaurant_id = $productDetails->restaurant_id;
         $lists = ProductList::where('category', $category_name)->where('restaurant_id', $restaurant_id)->where('restaurant_email', $email)->get()->all();
@@ -28,8 +28,8 @@ class BackendProductListController extends Controller
         $lists->name = $request->name;
         $lists->description = $request->description;
         $lists->price = $request->price;
-        $lists->category = $request->category;
-        $lists->restaurant_email = $request->email;
+        $lists->category = strtolower($request->category);
+        $lists->restaurant_email = $request->restaurent_email;
         $lists->restaurant_id = $request->restaurant_id;
         $image = $request->image;
         $imagename = time().'.'.$image->getClientOriginalExtension();
@@ -49,7 +49,7 @@ class BackendProductListController extends Controller
     public function update_list($id)
     {
         $lists = productlist::find($id);
-        $category_name = $lists->category;
+        $category_name = strtolower($lists->category);
         return view('backend.products', compact('lists', 'category_name'));
     }
 

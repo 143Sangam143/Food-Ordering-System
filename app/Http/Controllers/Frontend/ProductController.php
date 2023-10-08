@@ -66,6 +66,7 @@ class ProductController extends Controller
                 $carts->quantity = $request->quantity;
                 $carts->restaurant_email = $request->restaurant_email;
                 $carts->user_email = $request->user_email;
+                $carts->user_phone = $request->user_phone;
                 $carts->save();
                 return redirect()->back();
             }
@@ -79,6 +80,7 @@ class ProductController extends Controller
             $carts->quantity = $request->quantity;
             $carts->restaurant_email = $request->restaurant_email;
             $carts->user_email = $request->user_email;
+            $carts->user_phone = $request->user_phone;
             $carts->save();
             return redirect()->back();
         }
@@ -136,6 +138,7 @@ class ProductController extends Controller
                     if($orderlists){
                         foreach($orderlists as $orderlist){
                             $orderlist->quantity = $cart->quantity;
+                            $orderlist->delivery_status = 'accepted';
                             $orderlist->save();
                         }
                     }
@@ -147,6 +150,7 @@ class ProductController extends Controller
                         $order->quantity = $cart->quantity;
                         $order->restaurant_email = $cart->restaurant_email;
                         $order->user_email = $cart->user_email;
+                        $order->user_phone = $cart->user_phone;
                         $order->delivery_status = 'accepted';
                         $order->save();
                     }
@@ -160,6 +164,7 @@ class ProductController extends Controller
                 $order->quantity = $cart->quantity;
                 $order->restaurant_email = $cart->restaurant_email;
                 $order->user_email = $cart->user_email;
+                $order->user_phone = $cart->user_phone;
                 $order->delivery_status = 'accepted';
                 $order->save();
             }

@@ -15,7 +15,7 @@ class ProductSeeder extends Seeder
     {
         $categories = [
             [
-                'category' => 'Burger',
+                'category' => 'burger',
                 'description' => 'Burger are the best lunch in the world',
                 'image' => 'burger.png',
                 'restaurant_email' => 'food@gmail.com',
@@ -23,7 +23,7 @@ class ProductSeeder extends Seeder
             ],
 
             [
-                'category' => 'Pizza',
+                'category' => 'pizza',
                 'description' => 'Pizza are the best appetizer in the world',
                 'image' => 'pizza.png',
                 'restaurant_email' => '',
