@@ -23,9 +23,9 @@ class BackendProductController extends Controller
     public function add_category(Request $request)
     {
         $products = new product;
-        $products->category = $request->category;
+        $products->category = strtolower($request->category);
         $products->description = $request->description;
-        $products->restaurant_email = $request->email;
+        $products->restaurant_email = $request->restaurant_email;
         $products->restaurant_id =$request->restaurant_id;
 
         $image = $request->image;
@@ -43,7 +43,7 @@ class BackendProductController extends Controller
         $products = product::find($id);
         $email = $products->restaurant_email;
         $restaurant_id = $products->restaurant_id;
-        $category = $products->category;
+        $category = strtolower($products->category);
         $products->delete();
         $productlists = ProductList::where('category', $category)->where('restaurant_id', $restaurant_id)->where('restaurant_email', $email)->get()->all();
         foreach($productlists as $productlist){
@@ -63,9 +63,9 @@ class BackendProductController extends Controller
         $products = product::find($id);
         $email=$products->restaurant_email;
         $restaurant_id = $products->restaurant_id;
-        $product_category=$products->category;
-        $products->category = $request->category;
-        $products->email = $request->email;
+        $product_category=strtolower($products->category);
+        $products->category = strtolower($request->category);
+        $products->restaurant_email = $request->restaurant_email;
         $products->restaurant_id = $request->restaurant_id;
         
         $products->description = $request->description;
@@ -79,7 +79,7 @@ class BackendProductController extends Controller
         $products->save();
         $lists = ProductList::where('category',$product_category)->where('restaurant_id', $restaurant_id)->where('restaurant_email', $email)->get()->all();
         foreach($lists as $list){
-            $list->category = $request->category;
+            $list->category = strtolower($request->category);
             $list->save();
         }
         return redirect()->route('backend.restaurants');
