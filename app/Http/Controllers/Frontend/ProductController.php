@@ -147,7 +147,7 @@ class ProductController extends Controller
                         $order->quantity = $cart->quantity;
                         $order->restaurant_email = $cart->restaurant_email;
                         $order->user_email = $cart->user_email;
-                        $order->status = 'accepted';
+                        $order->delivery_status = 'accepted';
                         $order->save();
                     }
                 }
@@ -160,11 +160,15 @@ class ProductController extends Controller
                 $order->quantity = $cart->quantity;
                 $order->restaurant_email = $cart->restaurant_email;
                 $order->user_email = $cart->user_email;
-                $order->status = 'accepted';
+                $order->delivery_status = 'accepted';
                 $order->save();
             }
         }
-
+        $user_email = Auth::user()->email;
+        $carts = Cart::where('user_email', $user_email)->get()->all();
+        foreach($carts as $cart){
+            $cart->delete();
+        }
         return redirect()->back();
 
     }

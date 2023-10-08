@@ -30,7 +30,7 @@
                                                     <form action="{{ route('products.cartlist.update.quantity', $cart->id) }}" method="post" id="form-quantity-submit-{{$count}}">
                                                         @csrf
                                                         <select name="quantity" value="quantity" class="text-[#374151] text-[.7rem] xs:text-[.9rem] font-semibold border-[#d1d5db] rounded-[.4rem] py-[.15rem] xs:py-[.25rem] shadow-sm px-[.55rem] xs:px-[.75rem] mr-[.25rem] w-fit" id="select_change" onchange="submit_form(<?php echo $count; ?>)">
-                                                            @for($i=1; $i<=5; $i++)
+                                                            @for($i=1; $i<=10; $i++)
                                                                 <option for="id-{{$i}}" value="{{$i}}" {{$cart->quantity == $i ? 'selected' : ''}} onclick="submitFunction()">{{ $i }}</option>
                                                             @endfor
                                                         </select>
