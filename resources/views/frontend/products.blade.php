@@ -31,8 +31,12 @@
     @if(\Route::current()->getName() == 'restaurants')
         @include('frontend.products.restaurantlist')
     @elseif (\Route::current()->getName() == 'products') 
-        @include('frontend.products.landing')
-        @include('frontend.products.category')
+        @if($products)
+            @include('frontend.products.landing')
+            @include('frontend.products.category')
+        @else
+            @include('frontend.products.category')
+        @endif
     @elseif ((\Route::current()->getName() == 'products.list'))
         @include('frontend.products.landing')
         @include('frontend.products.list')
