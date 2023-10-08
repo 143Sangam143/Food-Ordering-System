@@ -21,8 +21,10 @@
                         </div>
                     </div>
                     <div class="absolute inset-0 h-full w-[8rem] sm:w-[13.8rem] md:w-[19.8rem] overflow-hidden rounded-[.7rem] border-y-4 border-[#222] ease-linear duration-300 mx-auto flex flex-col justify-center items-center text-white bg-[#666] [transform:rotateY(180deg)] [backface-visibility:hidden] px-[2rem] text-center font-medium font-mono">
-                        <h3 class="text-[.7rem] sm:text-[1.2rem] lg:text-[1.5rem] text-[#a0a0a0] truncate first-letter:capitalize">{{$restaurant->category}}</h3>
-                        <span class="block text-[.6rem] sm:text-[1rem] lg:text-[1.3rem] text-[#222] first-letter:capitalize">{{$restaurant->description}}</span>
+                        <h3 class="text-[.7rem] sm:text-[1.2rem] lg:text-[1.5rem] text-[#a0a0a0] truncate first-letter:capitalize">{{$restaurant->name}}</h3>
+                        <span class="block text-[.6rem] sm:text-[1rem] lg:text-[1.3rem] text-[#222] first-letter:capitalize">{{$restaurant->email}}</span>
+                        <span class="block text-[.6rem] sm:text-[1rem] lg:text-[1.3rem] text-[#222] first-letter:capitalize">{{$restaurant->phone}}</span>
+                        <span class="block text-[.6rem] sm:text-[1rem] lg:text-[1.3rem] text-[#222] first-letter:capitalize">{{$restaurant->address}}</span>
                     </div>
                 </div>
             </a>
