@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Service;
 use App\Models\ServiceList;
+use Illuminate\Support\Facades\File;
 
 class BackendServiceController extends Controller
 {
@@ -34,6 +35,11 @@ class BackendServiceController extends Controller
     public function delete_category($id)
     {
         $services = service::find($id);
+        $service_image = $services->image;
+        $image_path = 'images/backend/services/category/'.$service_image; 
+        if (File::exists($image_path)) {
+            File::delete($image_path);
+        }
         $services->delete();
         return redirect()->back();
 
@@ -48,11 +54,16 @@ class BackendServiceController extends Controller
     public function update_category_confirm(Request $request, $id)
     {
         $services = service::find($id);
+        $service_image = $services->image;
         $category_update=$services->category;
         $services->category = $request->category;
         $services->description = $request->description;
         if($request->hasFile('image'))
         {
+            $image_path = 'images/backend/services/category/'.$service_image; 
+            if (File::exists($image_path)) {
+                File::delete($image_path);
+            }
             $image=$request->image;
             $imagename = time().'.'.$image->getClientOriginalExtension();
             $request->image->move('images/backend/services/category',$imagename);
@@ -62,12 +73,8 @@ class BackendServiceController extends Controller
         $lists = servicelist::where('category',$category_update)->get()->all();
         
         foreach($lists as $list){
-            echo $list;
             $list->category = $services->category;
-            $id=$list->id;
-            
             $list->save();
-            echo $list;
         }
              
         return redirect()->route('backend.services');

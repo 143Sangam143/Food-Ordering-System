@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Service;
 use App\Models\ServiceList;
+use Illuminate\Support\Facades\File;
 
 class BackendServiceListController extends Controller
 {
@@ -33,6 +34,11 @@ class BackendServiceListController extends Controller
     public function delete_list($id)
     {
         $lists = servicelist::find($id);
+        $list_image = $lists->image;
+        $image_path = 'images/backend/services/list/'.$list_image; 
+        if (File::exists($image_path)) {
+            File::delete($image_path);
+        }
         $lists->delete();
         return redirect()->back();
     }
@@ -47,10 +53,15 @@ class BackendServiceListController extends Controller
     public function update_list_confirm(Request $request, $id)
     {
         $lists = servicelist::find($id);
+        $list_image = $lists->image;
         $lists->name = $request->name;
         $lists->description = $request->description;
         if($request->hasFile('image'))
         {
+            $image_path = 'images/backend/services/list/'.$list_image; 
+            if (File::exists($image_path)) {
+                File::delete($image_path);
+            }
             $image=$request->image;
             $imagename = time().'.'.$image->getClientOriginalExtension();
             $request->image->move('images/backend/services/list',$imagename);

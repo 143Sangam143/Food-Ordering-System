@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductList;
-use App\Models\Restaurant;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class BackendProductController extends Controller
 {
@@ -41,13 +41,23 @@ class BackendProductController extends Controller
     public function delete_category($id)
     {
         $products = product::find($id);
+        $category_image = $products->image;
         $email = $products->restaurant_email;
         $restaurant_id = $products->restaurant_id;
         $category = strtolower($products->category);
         $products->delete();
+        $image_path = 'images/backend/products/category/'.$category_image; 
+        if (File::exists($image_path)) {
+            File::delete($image_path);
+        }
         $productlists = ProductList::where('category', $category)->where('restaurant_id', $restaurant_id)->where('restaurant_email', $email)->get()->all();
         foreach($productlists as $productlist){
+            $list_image = $productlist->image;
             $productlist->delete();
+            $image_path = 'images/backend/products/list/'.$list_image;
+            if (File::exists($image_path)) {
+                File::delete($image_path);
+            }
         }
         return redirect()->back();
     }
@@ -61,6 +71,7 @@ class BackendProductController extends Controller
     public function update_category_confirm(Request $request, $id)
     {
         $products = product::find($id);
+        $category_image = $products->image;
         $email=$products->restaurant_email;
         $restaurant_id = $products->restaurant_id;
         $product_category=strtolower($products->category);
@@ -71,6 +82,10 @@ class BackendProductController extends Controller
         $products->description = $request->description;
         if($request->hasFile('image'))
         {
+            $image_path = 'images/backend/products/category/'.$category_image; 
+            if (File::exists($image_path)) {
+                File::delete($image_path);
+            }
             $image=$request->image;
             $imagename = time().'.'.$image->getClientOriginalExtension();
             $request->image->move('images/backend/products/category',$imagename);

@@ -7,12 +7,12 @@
             </a>
             <div class=" ml-auto flex">
                 @auth
-                    @if(Auth::user()->profile_pic)
-                        <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" data-dropdown-delay="500" class="relative ml-auto h-[2.5rem] w-[2.5rem] overflow-hidden bg-white p-[.1rem] align-center text-[#ff6760] rounded-[50%] text-[2rem] hover:bg-[#8ff3ee] selection:bg-[#8ff3ee] focus:ring-1 focus:outline-none focus:ring-blue-300 inline-flex dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-[#8ff3ee] dark:bg-gray-600" type="button"> 
-                            <img src="/images/profile/{{Auth::user()->profile_pic}}" alt="" class="rounded-[50%] h-full w-full">                        
+                    @if(Auth::user()->profile_photo_path)
+                        <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" data-dropdown-delay="500" class="relative ml-auto h-[2.5rem] w-[2.5rem] overflow-hidden bg-[#8ff3ee] p-[.1rem] align-center text-[#ff6760] rounded-[50%] text-[2rem] hover:bg-[#8dd3cc] selection:bg-[#8ff3ee] focus:ring-1 focus:outline-none focus:ring-blue-300 inline-flex dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-[#8ff3ee] dark:bg-gray-600" type="button"> 
+                            <img src="/storage/{{Auth::user()->profile_photo_path}}" alt="" class="rounded-[50%] h-full w-full">                        
                         </button>
                     @else
-                        <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" data-dropdown-delay="500" class="relative ml-auto h-[2.5rem] w-[2.5rem] overflow-hidden bg-white p-[.5rem] align-center text-[#ff6760] rounded-[50%] text-[2rem] bg-[#8ff3ee] hover:bg-[#8ee3dd] selection:bg-[#8ff3ee] focus:ring-1 focus:outline-none focus:ring-blue-300 inline-flex dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-[#8ff3ee] dark:bg-gray-600" type="button"> 
+                        <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" data-dropdown-delay="500" class="relative ml-auto h-[2.5rem] w-[2.5rem] overflow-hidden bg-[#8ff3ee] p-[.5rem] align-center text-[#ff6760] rounded-[50%] text-[2rem] bg-[#8ff3ee] hover:bg-[#8dd3cc] selection:bg-[#8ff3ee] focus:ring-1 focus:outline-none focus:ring-blue-300 inline-flex dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-[#8ff3ee] dark:bg-gray-600" type="button"> 
                             <svg class="text-gray-400 rounded-[50%] h-[1.8rem] w-[1.8rem] min-xs:h-[2rem] min-xs:w-[2rem]" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" style="width:auto; height:auto;">
                                 <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
                             </svg>

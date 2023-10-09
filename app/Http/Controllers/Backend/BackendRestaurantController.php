@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductList;
-use App\Models\Restaurant;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class BackendRestaurantController extends Controller
 {
@@ -20,11 +20,16 @@ class BackendRestaurantController extends Controller
     public function delete_restaurant($id)
     {
         $restaurants = User::find($id);
+        $restaurant_image = $restaurants->image;
         $email = $restaurants->email;
         $restaurant_id = $restaurants->id;
         $restaurants->delete();
         $products = Product::where('email',$email)->where('restaurant_id', $restaurant_id)->get()->all();
         foreach($products as $product){
+            $image_path = 'storage/'.$restaurant_image;
+            if (File::exists($image_path)) {
+                File::delete($image_path);
+            }
             $product->delete();
         }
         $productlists = ProductList::where('email',$email)->where('restaurant_id', $restaurant_id)->get()->all();
@@ -43,6 +48,7 @@ class BackendRestaurantController extends Controller
     public function update_restaurant_confirm(Request $request, $id)
     {
         $restaurants = User::find($id);
+        $restaurant_image = $restaurants->image;
         $email=$restaurants->email;
         $restaurant_id = $restaurants->id;
         $restaurants->name = $request->name;
@@ -50,6 +56,10 @@ class BackendRestaurantController extends Controller
         $restaurants->email = $request->email;
         if($request->hasFile('image'))
         {
+            $image_path = 'storage/'.$restaurant_image;
+            if (File::exists($image_path)) {
+                File::delete($image_path);
+            }
             $image=$request->image;
             $imagename = time().'.'.$image->getClientOriginalExtension();
             $request->image->move('images/backend/profile',$imagename);

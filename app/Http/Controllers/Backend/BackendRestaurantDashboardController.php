@@ -9,6 +9,7 @@ use App\Models\ProductList;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class BackendRestaurantDashboardController extends Controller
 {
@@ -44,6 +45,7 @@ class BackendRestaurantDashboardController extends Controller
         $products = Product::find($id);
         $email=$products->restaurant_email;
         $restaurant_id = $products->restaurant_id;
+        $category_image = $products->image;
         $product_category=strtolower($products->category);
         $products->category = strtolower($request->category);
         $products->restaurant_email = $request->restaurant_email;
@@ -52,6 +54,10 @@ class BackendRestaurantDashboardController extends Controller
         $products->description = $request->description;
         if($request->hasFile('image'))
         {
+            $image_path = 'images/backend/products/category/'.$category_image; 
+            if (File::exists($image_path)) {
+                    File::delete($image_path);
+            }
             $image=$request->image;
             $imagename = time().'.'.$image->getClientOriginalExtension();
             $request->image->move('images/backend/products/category',$imagename);
@@ -70,7 +76,12 @@ class BackendRestaurantDashboardController extends Controller
     public function category_delete($id)
     {
         $products = Product::find($id);
+        $category_image = $products->image;
         $products->delete();
+        $image_path = 'images/backend/products/category/'.$category_image; 
+        if (File::exists($image_path)) {
+                File::delete($image_path);
+        }
         return redirect()->back()->with('message', 'Successfully deleted.');
     }
 
@@ -102,11 +113,16 @@ class BackendRestaurantDashboardController extends Controller
     public function item_update(Request $request, $id)
     {
         $lists = productlist::find($id);
+        $list_image = $lists->image;
         $lists->name = $request->name;
         $lists->description = $request->description;
         $lists->price = $request->price;
         if($request->hasFile('image'))
         {
+            $image_path = 'images/backend/products/list/'.$list_image; 
+            if (File::exists($image_path)) {
+                File::delete($image_path);
+            }
             $image=$request->image;
             $imagename = time().'.'.$image->getClientOriginalExtension();
             $request->image->move('images/backend/products/list',$imagename);
@@ -119,7 +135,12 @@ class BackendRestaurantDashboardController extends Controller
     public function item_delete($id)
     {
         $lists = ProductList::find($id);
+        $list_image = $lists->image;
         $lists->delete();
+        $image_path = 'images/backend/products/list/'.$list_image; 
+        if (File::exists($image_path)) {
+            File::delete($image_path);
+        }
         return redirect()->back()->with('message', 'Successfully deleted item');
     }
 
