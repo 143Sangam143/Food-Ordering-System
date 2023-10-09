@@ -60,8 +60,8 @@
                             <div class="relative transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                                 <div class="w-[8rem] sm:w-[13.8rem] md:w-[19.8rem] !bg-center !bg-cover overflow-hidden rounded-[.7rem] bg-gradient-to-r from-[#f9f9f9]  via-[#ececec] to-[#f8f8f8] border-y-4 border-[#222] ease-linear duration-300 mx-auto">
                                     <div class="picture overflow-hidden w-[8rem] sm:w-[13.8rem] md:w-[19.8rem] h-[6rem] sm:h-[13.8rem] md:h-[19.8rem]">
-                                        @if($restaurant->profile_pic)
-                                            <img src="/images/profile/{{ $restaurant->profile_pic }}" alt="" class="block p-1 rounded-[.7rem] w-full h-full object-contain">
+                                        @if($restaurant->profile_photo_path)
+                                            <img src="/storage/{{ $restaurant->profile_photo_path }}" alt="" class="block p-1 rounded-[.7rem] w-full h-full object-contain">
                                         @else
                                             <svg class="text-gray-400 rounded-[50%] mx-auto w-max" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" style="height: -webkit-fill-available;">
                                                 <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
