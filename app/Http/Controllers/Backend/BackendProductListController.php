@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\ProductList;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class BackendProductListController extends Controller
 {
@@ -42,6 +43,11 @@ class BackendProductListController extends Controller
     public function delete_list($id)
     {
         $lists = productlist::find($id);
+        $list_image = $lists->image;
+        $image_path = 'images/backend/products/list/'.$list_image;
+        if (File::exists($image_path)) {
+            File::delete($image_path);
+        }
         $lists->delete();
         return redirect()->back();
     }
@@ -56,11 +62,16 @@ class BackendProductListController extends Controller
     public function update_list_confirm(Request $request, $id)
     {
         $lists = productlist::find($id);
+        $list_image = $lists->image;
         $lists->name = $request->name;
         $lists->description = $request->description;
         $lists->price = $request->price;
         if($request->hasFile('image'))
         {
+            $image_path = 'images/backend/products/list/'.$list_image;
+            if (File::exists($image_path)) {
+                File::delete($image_path);
+            }
             $image=$request->image;
             $imagename = time().'.'.$image->getClientOriginalExtension();
             $request->image->move('images/backend/products/list',$imagename);
