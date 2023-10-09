@@ -15,6 +15,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <script src="{{asset('/frontend/js/swiper.min.js')}}"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
         
 
         <!-- Styles -->
