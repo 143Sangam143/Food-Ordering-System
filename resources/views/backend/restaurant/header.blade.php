@@ -3,7 +3,7 @@
         <div class="grid grid-rows-1 grid-flow-col">
             <a href="{{route('restaurant.dashboard')}}" class="h-[2.5rem] w-[2.5rem] cursor-pointer">
                 <img src="{{asset('/frontend/images/logo.png')}}" alt="Logo" class="h-full relative">
-                <h1 class="text-black bottom-[-.1rem] absolute max-[350px]:text-[.7rem] text-[.9rem] font-bold font-mono">G-Helper</h1>
+                <h1 class="text-black bottom-[-.1rem] absolute max-[350px]:text-[.7rem] text-[.9rem] font-bold font-mono">Food</h1>
             </a>
             <div class=" ml-auto flex">
                 @auth

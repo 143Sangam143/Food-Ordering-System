@@ -4,7 +4,7 @@
         <div class="grid grid-rows-2 grid-flow-col">
             <a href="{{route('home')}}" class="row-span-3 h-[3rem] w-[3rem] min-[350px]:h-[3rem] min-[350px]:w-[3rem] cursor-pointer">
                 <img src="{{asset('/frontend/images/logo.png')}}" alt="Logo" class="h-full relative">
-                <h1 class="text-white absolute max-[350px]:text-[.7rem] text-[.9rem] font-bold font-mono">G-Helper</h1>
+                <h1 class="text-white absolute max-[350px]:text-[.7rem] text-[.9rem] font-bold font-mono">Food</h1>
             </a>
             <div class="col-span-4 max-[250px]:col-span-4 ml-auto flex gap-[.5rem]">
                 <div class="ml-auto">

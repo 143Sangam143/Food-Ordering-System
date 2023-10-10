@@ -5,7 +5,7 @@
             <img class="mx-auto h-[40%] sm:h-[50%] h-[55%] w-fit rounded-lg hover:scale-[1.2] mb-[1rem] sm:mb-[2rem]" src="{{asset('/frontend/images/home/home-news-bg-1.png')}}" alt="">
             <a href="#">
                 <h5 class="px-4 text-[.8rem] sm:text-[1.04rem] font-bold tracking-[.25px] leading-6 tracking-tight text-black dark:text-white text-center">
-                    Government to start a new hydro project plan.
+                    New food event starting from tommorrow
                 </h5>
             </a>
             <div class="absolute flex flex-col -bottom-[.1rem] -left-1 w-full">
@@ -20,7 +20,7 @@
             <img class="mx-auto h-[40%] sm:h-[50%] h-[55%] w-fit rounded-lg hover:scale-[1.2] mb-[1rem] sm:mb-[2rem]" src="{{asset('/frontend/images/home/home-news-bg-2.png')}}" alt="">
             <a href="#">
                 <h5 class="px-4 text-[.8rem] sm:text-[1.04rem] font-bold tracking-[.25px] leading-6 tracking-tight text-black dark:text-white text-center">
-                    Govertnment is stopping birtavata.
+                    Employee insurance is granted in food.com.
                 </h5>
             </a>
             <div class="absolute flex flex-col -bottom-[.1rem] -left-1 w-full">
@@ -35,7 +35,7 @@
             <img class="mx-auto h-[40%] sm:h-[50%] h-[55%] w-fit rounded-lg hover:scale-[1.2] mb-[1rem] sm:mb-[2rem]" src="{{asset('/frontend/images/home/home-news-bg-3.png')}}" alt="">
             <a href="#">
                 <h5 class="px-4 text-[.8rem] sm:text-[1.04rem] font-bold tracking-[.25px] leading-6 tracking-tight text-black dark:text-white text-center">
-                    Tax increased by 5% on everything.
+                    Food gives now more than 5% discount.
                 </h5>
             </a>
             <div class="absolute flex flex-col -bottom-[.1rem] -left-1 w-full">
@@ -50,7 +50,7 @@
             <img class="mx-auto h-[40%] sm:h-[50%] h-[55%] w-fit rounded-lg hover:scale-[1.2] mb-[1rem] sm:mb-[2rem]" src="{{asset('/frontend/images/home/home-news-bg-4.png')}}" alt="">
             <a href="#">
                 <h5 class="px-4 text-[.8rem] sm:text-[1.04rem] font-bold tracking-[.25px] leading-6 tracking-tight text-black dark:text-white text-center">
-                    New payment reward added in esewa.
+                    Food new event on couple dates
                 </h5>
             </a>
             <div class="absolute flex flex-col -bottom-[.1rem] -left-1 w-full">
@@ -65,7 +65,7 @@
             <img class="mx-auto h-[40%] sm:h-[50%] h-[55%] w-fit rounded-lg hover:scale-[1.2] mb-[1rem] sm:mb-[2rem]" src="{{asset('/frontend/images/home/home-news-bg-5.png')}}" alt="">
             <a href="#">
                 <h5 class="px-4 text-[.8rem] sm:text-[1.04rem] font-bold tracking-[.25px] leading-6 tracking-tight text-black dark:text-white text-center">
-                    Hosting services can be purchased online.
+                    Food becomes top qualifier to their customers
                 </h5>
             </a>
             <div class="absolute flex flex-col -bottom-[.1rem] -left-1 w-full">
@@ -80,7 +80,7 @@
             <img class="mx-auto h-[40%] sm:h-[50%] h-[55%] w-fit rounded-lg hover:scale-[1.2] mb-[1rem] sm:mb-[2rem]" src="{{asset('/frontend/images/home/home-news-bg-6.png')}}" alt="">
             <a href="#">
                 <h5 class="px-4 text-[.8rem] sm:text-[1.04rem] font-bold tracking-[.25px] leading-6 tracking-tight text-black dark:text-white text-center">
-                    Free delivery is compulsary now.
+                    Free delivery is now available.
                 </h5>
             </a>
             <div class="absolute flex flex-col -bottom-[.1rem] -left-1 w-full">

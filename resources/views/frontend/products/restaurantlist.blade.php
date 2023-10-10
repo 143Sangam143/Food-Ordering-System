@@ -32,6 +32,32 @@
     </div>
 </div>
 
+<div class="min-h-screen !bg-fixed !bg-no-repeat !bg-center !bg-cover pt-[8rem] pb-[3rem] space-y-[1.5rem]" style="background: url('/frontend/images/products/background/bg-category-<?php echo rand(1,9) ?>.png');">
+    <h1 class="font-bold text-[2.2rem] text-white text-center">Nearby Restaurant</h1>
+    <div class="grid grid-cols-1 min-[350px]:grid-cols-2 xl:grid-cols-3 items-center justify-center px-[5%] 2xl:px-[10vw] gap-y-[1.5rem] scroll-smooth">
+        @php($c=1)
+        @foreach($results as $result)
+            <a href="{{ route('products', $restaurant->id) }}" class="hover:scale-[1.02] ">
+                <div class="relative ">
+                    <div class="w-[8rem] sm:w-[13.8rem] md:w-[19.8rem] !bg-center !bg-cover overflow-hidden rounded-[.7rem] bg-gradient-to-r from-[#f9f9f9]  via-[#ececec] to-[#f8f8f8] border-y-4 border-[#222] mx-auto">
+                        <div class="picture overflow-hidden w-[8rem] sm:w-[13.8rem] md:w-[19.8rem] h-[6rem] sm:h-[13.8rem] md:h-[19.8rem]">
+                            <svg class="text-gray-400 rounded-[50%] mx-auto w-max" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" style="height: -webkit-fill-available;">
+                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <hr class="z-10 h-[.1rem] bg-[#ccc]">
+                        <div class="py-[1rem] font-medium font-mono text-center px-5">
+                            <h3 class="text-[1.2rem] sm:text-[1.5rem] text-[#222] truncate first-letter:capitalize">{{$c}}</h3>
+                            <span class="text-[1rem] sm:text-[1.3rem] text-[#a0a0a0] block truncate">{{$result}}</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            @php($c++)
+        @endforeach
+    </div>
+</div>
+
 <script type="text/javascript">
     var imgCount = 3;
         var dir = 'frontend/images/products/background/';
