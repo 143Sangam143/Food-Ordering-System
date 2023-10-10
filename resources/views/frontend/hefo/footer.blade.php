@@ -3,24 +3,24 @@
         <div class="grid grid-cols-1 md:grid-cols-4 text-center mb-[2rem]  md:px-[2rem] lg:px-[9.05rem]">
             <div class="mx-auto mt-[.8rem]">
                 <!-- <h5 class="uppercase mb-[1.3rem] font-medium text-[1.25rem] text-[#ffc107]">Company Name</h5> -->
-                <h5 class="uppercase mb-[1.3rem] font-medium text-[1.25rem] text-[#3574d3]">G-Helper</h5>
-                <p class="md:text-justify lg:text-center px-4 md:px-0">Heere you can use rows and columns to oranize your footer content. Lorem ipsum dolor sit amet, ital consectertur lore ipsum dolor sit amet adipisicing elit</p>
+                <h5 class="uppercase mb-[1.3rem] font-medium text-[1.25rem] text-[#3574d3]">Food</h5>
+                <p class="md:text-justify lg:text-center px-4 md:px-0">We provide best food to our customer. Customer health is our wealth. So, we go on about quality rather than quantity.</p>
             </div>
 
             <div class="mx-auto mt-[.8rem] lg:pl-[2.3rem]">
                 <h5 class="uppercase mb-[1.3rem] font-medium text-[1.25rem] text-[#ffc107]">Products</h5>
                 <div class="space-y-[1rem]">
                     <p>
-                        <a href="#" class="text-white no-underline">Laravel</a>
+                        <a href="#" class="text-white no-underline">Momo</a>
                     </p>
                     <p>
-                        <a href="#" class="text-white no-underline">Tailwind</a>
+                        <a href="#" class="text-white no-underline">Burger</a>
                     </p>
                     <p>
-                        <a href="#" class="text-white no-underline">Flowbite</a>
+                        <a href="#" class="text-white no-underline">Pizza</a>
                     </p>
                     <p>
-                        <a href="#" class="text-white no-underline">Fontawesome</a>
+                        <a href="#" class="text-white no-underline">Chicken</a>
                     </p>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                         <i class="fas fa-home mr-3"></i>Kathamndu, Nepal
                     </p>
                     <p>
-                        <i class="fas fa-envelope mr-3"></i>ghelper@gmail.com
+                        <i class="fas fa-envelope mr-3"></i>food@gmail.com
                     </p>
                     <p>
                         <i class="fas fa-phone mr-3"></i>92 12345678

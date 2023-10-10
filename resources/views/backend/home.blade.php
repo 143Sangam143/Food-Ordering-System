@@ -3,7 +3,7 @@
     Welcome
 @endsection
 @section('meta-content')
-    To G-Helper
+    To food
 @endsection
 
 @section('main')

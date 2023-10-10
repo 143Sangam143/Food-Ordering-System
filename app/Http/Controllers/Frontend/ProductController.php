@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Models\Cart;
+use App\Models\Location;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductList;
@@ -17,8 +18,41 @@ class ProductController extends Controller
     public function restaurant_list()
     {
         $restaurants = User::where('usertype', '2')->get()->all();
-        return view('frontend.products', compact('restaurants'));
+
+        $locations = Location::get()->all();
+        $user_latitude = 27.7413327;
+        $user_longitude = 85.344622;
+        $count = 0;
+
+        foreach($locations as $location)
+        {
+                $results[$count] = $this->haversine($user_latitude, $user_longitude, $location->latitude, $location->longitude);
+                $count++;                
+        }
+
+        
+
+        return view('frontend.products', compact('restaurants','results'));
     }
+
+    public function haversine($lat1, $lon1, $lat2, $lon2)
+        {
+                $dLat = ($lat2 - $lat1) * M_PI / 180.0;
+                $dLon = ($lon2 - $lon1) * M_PI / 180.0;
+
+                $lat1 = ($lat1) * M_PI / 180.0;
+                $lat2 = ($lat2) * M_PI / 180.0;
+            
+                // apply formulae
+                $a = pow(sin($dLat / 2), 2) + pow(sin($dLon / 2), 2) * cos($lat1) * cos($lat2);
+                $rad = 6371;
+                $c = 2 * asin(sqrt($a));
+                return $rad * $c;
+        }
+
+    
+
+
     public function p_category($id)
     {
         $restaurants = User::find($id);
