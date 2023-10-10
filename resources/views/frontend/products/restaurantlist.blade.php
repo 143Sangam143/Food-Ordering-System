@@ -48,7 +48,7 @@
                         <hr class="z-10 h-[.1rem] bg-[#ccc]">
                         <div class="py-[1rem] font-medium font-mono text-center px-5">
                             <h3 class="text-[1.2rem] sm:text-[1.5rem] text-[#222] truncate first-letter:capitalize">{{$c}}</h3>
-                            <span class="text-[1rem] sm:text-[1.3rem] text-[#a0a0a0] block truncate">{{$result}}</span>
+                            <span class="text-[1rem] sm:text-[1.3rem] text-[#a0a0a0] block truncate">{{$result}} Km</span>
                         </div>
                     </div>
                 </div>
